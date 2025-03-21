@@ -91,7 +91,7 @@ Create a simple blog application where users can perform the following actions:
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone --single-branch --branch starter-point https://github.com/MazenChaouch/blog-app.git
    cd blog-app
    ```
 
