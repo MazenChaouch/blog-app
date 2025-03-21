@@ -86,6 +86,21 @@ Create a simple blog application where users can perform the following actions:
    - Ensure all CRUD operations work as expected.
    - Verify the UI is styled correctly using Tailwind CSS.
 
+## Middleware Tasks
+
+1. **Logging Middleware**: Logs each request to the server.
+2. **Error Handling Middleware**: Catches and handles errors, sending appropriate responses to the client.
+3. **Body Parsing Middleware**: Parses incoming request bodies in a middleware before your handlers, available under the `req.body` property.
+4. **Static Files Middleware**: Serves static files such as images, CSS files, and JavaScript files.
+
+```javascript
+// Example of a logging middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+```
+
 ## Getting Started
 
 1. Clone the repository:

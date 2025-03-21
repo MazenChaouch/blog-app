@@ -1,15 +1,17 @@
 const posts = [];
 
-exports.getAllPosts = (req, res) => {};
+getAllPosts = (req, res) => {};
 
-exports.getPost = (req, res) => {};
+getPost = (req, res) => {};
 
-exports.newPost = (req, res) => {};
+newPost = (req, res) => {};
 
-exports.createPost = (req, res) => {};
+createPost = (req, res) => {};
 
-exports.editPost = (req, res) => {};
+editPost = (req, res) => {};
 
-exports.updatePost = (req, res) => {};
+updatePost = (req, res) => {};
 
-exports.deletePost = (req, res) => {};
+deletePost = (req, res) => {};
+
+// export all controllers
