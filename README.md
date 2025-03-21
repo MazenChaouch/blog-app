@@ -72,19 +72,10 @@ Create a simple blog application where users can perform the following actions:
    - `new.ejs` to display the form for creating a new post.
    - `edit.ejs` to display the form for editing an existing post.
 
-6. **Set up Tailwind CSS:**
+6. **Implement the main application logic:**
 
-   - Use the Tailwind CSS CDN for styling the application.
-
-7. **Implement the main application logic:**
-
-   - Set up the Express application in `app.js`.
    - Configure the view engine, middleware, and static files.
    - Define the routes and start the server.
-
-8. **Test the application:**
-   - Ensure all CRUD operations work as expected.
-   - Verify the UI is styled correctly using Tailwind CSS.
 
 ## Middleware Tasks
 
@@ -138,8 +129,6 @@ blog-app/
 │   ├── post.ejs
 │   ├── new.ejs
 │   └── edit.ejs
-├── public/
-│   └── style.css
 ├── app.js
 ├── package.json
 └── README.md
