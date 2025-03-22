@@ -72,26 +72,31 @@ Create a simple blog application where users can perform the following actions:
    - `new.ejs` to display the form for creating a new post.
    - `edit.ejs` to display the form for editing an existing post.
 
-6. **Set up Tailwind CSS:**
+6. **Implement the main application logic:**
 
-   - Use the Tailwind CSS CDN for styling the application.
-
-7. **Implement the main application logic:**
-
-   - Set up the Express application in `app.js`.
    - Configure the view engine, middleware, and static files.
    - Define the routes and start the server.
 
-8. **Test the application:**
-   - Ensure all CRUD operations work as expected.
-   - Verify the UI is styled correctly using Tailwind CSS.
+## Middleware Tasks
+
+1. **Logging Middleware**: Logs each request to the server.
+2. **Error Handling Middleware**: Catches and handles errors, sending appropriate responses to the client.
+3. **Static Files Middleware**: Serves static files such as images, CSS files, and JavaScript files.
+
+```javascript
+// Example of a logging middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+```
 
 ## Getting Started
 
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone --single-branch --branch starter-point https://github.com/MazenChaouch/blog-app.git
    cd blog-app
    ```
 
@@ -123,8 +128,6 @@ blog-app/
 │   ├── post.ejs
 │   ├── new.ejs
 │   └── edit.ejs
-├── public/
-│   └── style.css
 ├── app.js
 ├── package.json
 └── README.md

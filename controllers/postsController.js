@@ -1,46 +1,60 @@
 const posts = [];
 
-exports.getAllPosts = (req, res) => {
+getAllPosts = (req, res) => {
   res.render("posts", { posts });
 };
 
-exports.getPost = (req, res) => {
-  const post = posts.find((p) => p.id === parseInt(req.params.id));
-  if (!post) return res.status(404).send("Post not found");
-  res.render("post", { post });
+getPost = (req, res) => {
+  const post = posts.find((post) => post.id == req.params.id);
+  if (!post) res.status(404).send("post not found");
+  else res.render("post", { post });
 };
 
-exports.newPost = (req, res) => {
+newPost = (req, res) => {
   res.render("new");
 };
 
-exports.createPost = (req, res) => {
+createPost = (req, res) => {
+  const data = req.body;
+  const { title, content } = data;
   const post = {
-    id: posts.length + 1,
-    title: req.body.title,
-    content: req.body.content,
+    id: posts.length > 0 ? posts[posts.length - 1].id + 1 : 1,
+    title,
+    content,
   };
   posts.push(post);
   res.redirect("/posts");
 };
 
-exports.editPost = (req, res) => {
-  const post = posts.find((p) => p.id === parseInt(req.params.id));
-  if (!post) return res.status(404).send("Post not found");
-  res.render("edit", { post });
+editPost = (req, res) => {
+  const post = posts.find((post) => post.id == req.params.id);
+  if (!post) res.status(404).send("post not found");
+  else res.render("edit", { post });
 };
 
-exports.updatePost = (req, res) => {
-  const post = posts.find((p) => p.id === parseInt(req.params.id));
-  if (!post) return res.status(404).send("Post not found");
-  post.title = req.body.title;
-  post.content = req.body.content;
+updatePost = (req, res) => {
+  const title = req.body.title;
+  const content = req.body.content;
+  const index = posts.findIndex((post) => post.id == req.params.id);
+  posts[index].title = title;
+  posts[index].content = content;
+  res.redirect(`/posts/${req.params.id}`);
+};
+
+deletePost = (req, res) => {
+  const id = req.params.id;
+  const start = posts.findIndex((post) => post.id == id);
+  posts.splice(start, 1);
   res.redirect("/posts");
 };
 
-exports.deletePost = (req, res) => {
-  const postIndex = posts.findIndex((p) => p.id === parseInt(req.params.id));
-  if (postIndex === -1) return res.status(404).send("Post not found");
-  posts.splice(postIndex, 1);
-  res.redirect("/posts");
+// export all controllers
+module.exports = {
+  getAllPosts,
+  getPost,
+  newPost,
+  createPost,
+  editPost,
+  updatePost,
+  deletePost,
 };
