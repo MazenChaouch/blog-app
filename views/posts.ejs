@@ -9,19 +9,34 @@
   </head>
   <body class="font-sans">
     <div class="container mx-auto p-4">
-      <h1 class="text-2xl font-bold mb-4">Posts</h1>
-      <a href="" class="text-blue-500 hover:underline">Create New Post</a>
+      <h1 class="text-2xl font-bold mb-4">All Posts</h1>
+      <a href="/posts/new" class="text-blue-500 hover:underline"
+        >Create New Post</a
+      >
       <ul class="mt-4">
+        <% posts.forEach((post)=>{ %>
         <li class="mb-2">
-          <a href="" class="text-blue-500 hover:underline">title</a>
-          <a href="" class="text-blue-500 hover:underline ml-2">Edit</a>
-          <form class="inline">
+          <a href="/posts/<%= post.id %>" class="text-blue-500 hover:underline"
+            ><%= post.title %></a
+          >
+          <a
+            href="/posts/<%= post.id %>/edit"
+            class="text-blue-500 hover:underline ml-2"
+            >Edit</a
+          >
+          <form
+            action="/posts/<%= post.id %>/delete?_method=DELETE"
+            method="post"
+            class="inline"
+          >
             <button type="submit" class="text-red-500 hover:underline"
               >Delete</button
             >
           </form>
         </li>
+        <% }) %>
       </ul>
+      <img src="/earth.bmp" width="500" height="500" />
     </div>
   </body>
 </html>

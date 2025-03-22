@@ -81,8 +81,7 @@ Create a simple blog application where users can perform the following actions:
 
 1. **Logging Middleware**: Logs each request to the server.
 2. **Error Handling Middleware**: Catches and handles errors, sending appropriate responses to the client.
-3. **Body Parsing Middleware**: Parses incoming request bodies in a middleware before your handlers, available under the `req.body` property.
-4. **Static Files Middleware**: Serves static files such as images, CSS files, and JavaScript files.
+3. **Static Files Middleware**: Serves static files such as images, CSS files, and JavaScript files.
 
 ```javascript
 // Example of a logging middleware
